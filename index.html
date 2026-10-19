@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlowTennis</title>
+<link rel="icon" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root { --optic:#D4FF3A; --ink:#F2F4EF; --bg:#0B0F14; --panel:#121820; --line:#2A3440; --muted:#9AA5B1; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.65 "DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
+.wrap { max-width:760px; margin:0 auto; padding:0 16px; }
+header { padding:32px 0 8px; }
+header a { display:inline-block; }
+header img { width:min(260px,70vw); height:auto; display:block; }
+nav { display:flex; gap:18px; margin-top:18px; font-size:15px; }
+nav a { color:var(--muted); text-decoration:none; }
+nav a[aria-current] { color:var(--optic); }
+main { padding:24px 0 72px; }
+h1, h2 { font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; line-height:1; margin:0; }
+h1 { font-size:clamp(40px,8vw,64px); margin:12px 0 18px; }
+h2 { font-size:30px; margin:40px 0 10px; }
+p, li { color:var(--ink); }
+.muted, .meta { color:var(--muted); }
+a { color:var(--optic); }
+ul { padding-left:22px; }
+li { margin:6px 0; }
+table { width:100%; border-collapse:collapse; margin:18px 0; font-size:15.5px; }
+th, td { text-align:left; vertical-align:top; padding:11px 10px 11px 0; border-bottom:1px solid var(--line); }
+th { color:var(--muted); font-weight:500; }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin:16px 0; }
+.card h2 { margin-top:0; font-size:24px; }
+footer { border-top:1px solid var(--line); padding:28px 0 56px; color:var(--muted); font-size:14px; }
+@media (max-width:560px) { th, td { display:block; padding:6px 0; border:0; } tr { display:block; padding:10px 0; border-bottom:1px solid var(--line); } }
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a href=""><img src="assets/wordmark.png" alt="FlowTennis"></a>
+  <nav><a href="" aria-current="page">Home</a><a href="support/">Support</a><a href="privacy/">Privacy</a></nav>
+</header>
+<main class="wrap">
+<h1>Your shots,<br>in slow motion.</h1>
+<p class="muted" style="font-size:19px;max-width:40ch">FlowTennis films your tennis session, hears every ball
+strike, cuts out the standing around, and gives you back your shots — each one slowed, each
+rally at real speed. One iPhone on a tripod. Nothing to wear.</p>
+<p class="muted">Coming to the App Store.</p>
+
+</main>
+<footer class="wrap">FlowTennis is published by Ayva Labs Limited. ·
+  <a href="mailto:support@ayvalabs.com">support@ayvalabs.com</a></footer>
+</body>
+</html>
