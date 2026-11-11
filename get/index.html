@@ -4,41 +4,297 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get FlowTennis</title>
-<meta name="description" content="Film your tennis. FlowTennis finds every shot and cuts the dead time out. Free on iPhone and Android.">
-<meta property="og:title" content="Get FlowTennis">
-<meta property="og:description" content="Film your tennis. Every shot, cut for you. Free on iPhone and Android.">
-<meta property="og:image" content="https://aeropriest.github.io/flowsports-site/assets/wordmark.png">
+<meta name="description" content="You play well with your coach, then lose it in the match. Film your real tennis: FlowTennis finds every shot, slows it down, puts it next to a pro and lets you ask an AI coach. Free on iPhone and Android.">
+<meta property="og:title" content="FlowTennis: see the tennis you actually play">
+<meta property="og:description" content="Film your match. Every shot found, slowed down, compared with a pro. Free on iPhone and Android.">
+<meta property="og:image" content="https://aeropriest.github.io/flowsports-site/get/img/compare.jpg">
+<meta name="theme-color" content="#0B0F14">
 <link rel="icon" href="../assets/mark.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<script>
-  // A phone goes straight to its store; anything else sees both buttons.
-  (function () {
-    var ua = navigator.userAgent || '';
-    var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-    if (ios) location.replace('https://testflight.apple.com/join/3Px7Wek4');
-    else if (/Android/.test(ua)) location.replace('https://play.google.com/apps/testing/ai.flowsports.flowtennis');
-  })();
-</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root { --optic:#D4FF3A; --ink:#F2F4EF; --bg:#0B0F14; --line:#2A3440; --muted:#9AA5B1; }
-* { box-sizing:border-box; }
-body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.6 "DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
-main { max-width:520px; margin:0 auto; padding:56px 16px 72px; }
-img { width:min(260px,70vw); height:auto; display:block; }
-h1 { font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; line-height:.95; font-size:clamp(44px,10vw,64px); margin:28px 0 12px; }
-p { color:var(--muted); margin:0 0 28px; }
-a.btn { display:block; text-align:center; text-decoration:none; font-weight:700; padding:16px; border-radius:14px; margin:12px 0; }
-.ios { background:var(--optic); color:#0B0F14; }
-.android { border:1px solid var(--line); color:var(--ink); }
+:root{--optic:#D4FF3A;--ink:#F2F4EF;--bg:#0B0F14;--bg2:#111820;--card:#151D26;--line:#25303C;--muted:#9AA5B1;--clay:#C2553F}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.display{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;line-height:.92;letter-spacing:.005em;text-transform:uppercase;margin:0}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--optic);margin:0 0 14px}
+.lede{color:var(--muted);font-size:clamp(17px,2vw,19px);max-width:34em}
+section{padding:clamp(72px,10vw,128px) 0}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(11,15,20,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(37,48,60,.6)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+nav img{height:26px;width:auto}
+.pill{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;padding:9px 18px;border-radius:999px;background:var(--optic);color:#0B0F14}
+
+/* buttons */
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:32px 0 18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:700;padding:16px 26px;border-radius:14px;min-width:210px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.primary{background:var(--optic);color:#0B0F14}
+.btn.ghost{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.02)}
+.fine{font-size:14px;color:var(--muted)}
+.fine b{color:var(--ink);font-weight:500}
+
+/* hero */
+.hero{padding:clamp(40px,6vw,72px) 0 clamp(64px,8vw,96px);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-200px;right:-200px;width:720px;height:720px;background:radial-gradient(circle,rgba(212,255,58,.13),transparent 62%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(58px,8vw,104px)}
+.hero h1 em{font-style:normal;color:var(--optic)}
+.hero .lede{margin:24px 0 0}
+.phone{border-radius:38px;padding:9px;background:#05080B;border:1px solid #2B3642;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.03) inset;max-width:320px;margin:0 auto}
+.phone img{border-radius:30px;width:100%}
+.hero .phone{transform:rotate(3deg);max-width:290px}
+
+/* story */
+.story{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.story h2{font-size:clamp(48px,7vw,92px);max-width:11em}
+.story h2 span{color:var(--clay)}
+.story .lede{margin:28px 0 56px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.vs > div{border-radius:20px;padding:28px;border:1px solid var(--line);background:var(--card)}
+.vs h3{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0 0 16px;letter-spacing:.01em}
+.vs ul{list-style:none;margin:0;padding:0}
+.vs li{padding:11px 0 11px 30px;border-top:1px solid var(--line);position:relative;color:#C9D1D8}
+.vs li:first-child{border-top:0}
+.vs li::before{position:absolute;left:0;top:11px;font-weight:700}
+.vs .lesson h3{color:var(--optic)}
+.vs .lesson li::before{content:"✓";color:var(--optic)}
+.vs .match h3{color:var(--clay)}
+.vs .match li::before{content:"✕";color:var(--clay)}
+.punch{margin:56px 0 0;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
+.punch .big{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:clamp(40px,5vw,64px);line-height:.95;text-transform:uppercase;max-width:8em}
+.punch p{margin:0 0 14px;color:#C9D1D8}
+.punch p:last-child{margin:0}
+.punch strong{color:var(--ink)}
+
+/* how */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.step{padding:28px;border-radius:20px;background:var(--card);border:1px solid var(--line)}
+.step .n{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:64px;line-height:1;color:var(--optic)}
+.step h3{margin:14px 0 8px;font-size:21px}
+.step p{margin:0;color:var(--muted)}
+h2.display{font-size:clamp(44px,6vw,76px)}
+
+/* feature rows */
+.row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.row.flip > :first-child{order:2}
+.row h2{margin-bottom:22px}
+.row .lede{margin:0 0 24px}
+.ticks{list-style:none;padding:0;margin:0}
+.ticks li{padding:8px 0 8px 32px;position:relative;color:#C9D1D8}
+.ticks li::before{content:"";position:absolute;left:0;top:15px;width:16px;height:9px;border-left:3px solid var(--optic);border-bottom:3px solid var(--optic);transform:rotate(-45deg)}
+
+/* compare */
+.compare{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.compare .shot{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);margin-top:44px;box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
+.compare .shot .tag{position:absolute;right:0;top:0;bottom:0;width:50%;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+.compare .shot .tag span{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;font-size:clamp(20px,3vw,34px);text-transform:uppercase;line-height:1.05;color:var(--ink);text-shadow:0 2px 20px rgba(0,0,0,.6)}
+.compare .shot .tag small{display:block;font-family:"DM Sans",sans-serif;font-weight:500;font-size:13px;text-transform:none;color:var(--muted);margin-top:8px;letter-spacing:0}
+.compare .cols{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end}
+.compare .cols .lede{margin:0}
+
+/* coach */
+.chat{display:flex;flex-direction:column;gap:10px;margin:0 0 22px}
+.bubble{max-width:88%;padding:13px 17px;border-radius:18px;font-size:16px;line-height:1.5}
+.bubble.me{align-self:flex-end;background:var(--optic);color:#0B0F14;font-weight:500;border-bottom-right-radius:6px}
+.bubble.ai{align-self:flex-start;background:var(--card);border:1px solid var(--line);color:#D8DEE3;border-bottom-left-radius:6px}
+.bubble.ai b{color:var(--optic);font-weight:700}
+.note{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding-left:14px;margin:0}
+
+/* benefits */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.tile{padding:26px;border-radius:20px;background:var(--card);border:1px solid var(--line)}
+.tile .ico{width:44px;height:44px;border-radius:12px;background:rgba(212,255,58,.12);display:grid;place-items:center;margin-bottom:16px}
+.tile .ico svg{width:22px;height:22px;stroke:var(--optic);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tile h3{margin:0 0 6px;font-size:19px}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+
+/* duo */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:640px;margin:0 auto}
+.duo .phone{max-width:none}
+
+/* final */
+.final{text-align:center;padding-bottom:clamp(80px,10vw,120px)}
+.final h2{font-size:clamp(56px,9vw,120px)}
+.final h2 em{font-style:normal;color:var(--optic)}
+.final .lede{margin:22px auto 0}
+.final .ctas{justify-content:center}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted);text-decoration:none;margin-left:18px}
+footer a:hover{color:var(--ink)}
+
+@media (max-width:860px){
+  .hero .wrap,.row,.compare .cols{grid-template-columns:1fr;gap:40px}
+  .row.flip > :first-child{order:0}
+  .hero .phone{max-width:260px;transform:rotate(2deg)}
+  .vs,.steps,.grid{grid-template-columns:1fr}
+  .punch{grid-template-columns:1fr;gap:18px}
+  .row .phone{max-width:280px}
+  .btn{width:100%}
+  .compare .shot .tag small{display:none}
+  footer a{margin:0 18px 0 0}
+}
+@media (max-width:520px){ .wrap{padding:0 16px} nav img{height:22px} .duo{gap:14px} .phone{border-radius:28px;padding:6px} .phone img{border-radius:23px} }
 </style>
 </head>
 <body>
-<main>
+
+<nav><div class="wrap">
   <img src="../assets/wordmark.png" alt="FlowTennis">
-  <h1>EVERY SWING.<br>YOUR HIGHLIGHT REEL.</h1>
-  <p>Prop your phone by the court and play. FlowTennis finds every shot and cuts out the walking about. Free.</p>
-  <a class="btn ios" href="https://testflight.apple.com/join/3Px7Wek4">Get it on iPhone</a>
-  <a class="btn android" href="https://play.google.com/apps/testing/ai.flowsports.flowtennis">Get it on Android</a>
-</main>
+  <a class="pill js-primary" href="#get">Get the app</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">Free on iPhone and Android</p>
+    <h1 class="display">See the tennis you <em>actually</em> play.</h1>
+    <p class="lede">Prop your phone by the court and play your match. FlowTennis finds every shot, cuts out the walking about and slows each swing down, so you can finally see what happens when it counts.</p>
+    <div class="ctas" id="get">
+      <a class="btn primary js-ios" href="https://testflight.apple.com/join/3Px7Wek4"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>Get it on iPhone</a>
+      <a class="btn ghost js-android" href="https://play.google.com/apps/testing/ai.flowsports.flowtennis"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.5l1.8-3.1c.1-.2 0-.4-.1-.5-.2-.1-.4 0-.5.1l-1.8 3.2c-1.5-.7-3.2-1-5-1s-3.5.3-5 1L5.2 6c-.1-.2-.3-.2-.5-.1-.2.1-.2.3-.1.5l1.8 3.1C3.3 11.2 1.3 14.3 1 18h22c-.3-3.7-2.3-6.8-5.4-8.5zM7 15.3c-.6 0-1-.5-1-1s.5-1 1-1 1 .5 1 1-.4 1-1 1zm10 0c-.6 0-1-.5-1-1s.5-1 1-1 1 .5 1 1-.4 1-1 1z"/></svg>Get it on Android</a>
+    </div>
+    <p class="fine"><b>Free.</b> Your videos stay on your phone.</p>
+  </div>
+  <div class="phone"><img src="img/home.jpg" alt="FlowTennis home screen showing a forehand scored 70" width="640" height="1323"></div>
+</div></header>
+
+<section class="story"><div class="wrap">
+  <p class="eyebrow">Sound familiar?</p>
+  <h2 class="display">Great in the lesson. <span>Gone in the match.</span></h2>
+  <p class="lede">You hit it clean all hour with your coach. Then Saturday comes, the score matters, and the same forehand sails long. It isn't that you forgot how. Lessons and matches are two different sports.</p>
+  <div class="vs">
+    <div class="lesson">
+      <h3>With your coach</h3>
+      <ul>
+        <li>Same ball, same height, same pace, fed to your strike zone</li>
+        <li>You're set and balanced before every swing</li>
+        <li>Fifty forehands in a row, so the groove builds</li>
+        <li>Someone watches every swing and tells you straight away</li>
+      </ul>
+    </div>
+    <div class="match">
+      <h3>In a real match</h3>
+      <ul>
+        <li>Every ball is different: high, low, fast, short, spinning</li>
+        <li>You're on the run, late, off balance</li>
+        <li>One shot, then something else entirely</li>
+        <li>Pressure on, nobody watching, old habits back</li>
+      </ul>
+    </div>
+  </div>
+  <div class="punch">
+    <div class="big">You can't fix what you can't see.</div>
+    <div>
+      <p>Under pressure your body goes back to what it trusts. The late contact, the short follow-through, the arm doing all the work. You don't feel it, because what you <em>feel</em> you're doing and what you're <em>really</em> doing are not the same.</p>
+      <p>Your coach sees your lesson. <strong>Nobody sees your match.</strong> FlowTennis does. Film the tennis that counts, then watch every shot slowed down, put it next to a pro, and take what you find back to your next lesson.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">How it works</p>
+  <h2 class="display">Prop. Play. Watch.</h2>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><h3>Prop your phone</h3><p>On the fence or your bag, sideways, facing your side of the court. Press record and forget about it. The screen dims to save battery.</p></div>
+    <div class="step"><div class="n">02</div><h3>Play your match</h3><p>An hour, two hours, whatever you play. FlowTennis listens for every strike and watches your body as you hit.</p></div>
+    <div class="step"><div class="n">03</div><h3>Watch just your shots</h3><p>The walking, picking up balls and waiting are cut out. You're left with every swing, labelled, scored and in slow motion.</p></div>
+  </div>
+</div></section>
+
+<section class="compare"><div class="wrap">
+  <div class="cols">
+    <div>
+      <p class="eyebrow">Side by side with a pro</p>
+      <h2 class="display">Your swing. Their swing. Same frame.</h2>
+    </div>
+    <p class="lede">Pick any of your shots and play it next to a pro's, lined up at the same moment. Drag through preparation, contact and follow-through and the difference shows itself. Is your contact in front? Did your shoulders turn? Now you can see it.</p>
+  </div>
+  <div class="shot">
+    <img src="img/compare.jpg" alt="Your forehand on the left, a reference player's forehand on the right, both at contact" width="1200" height="552" loading="lazy">
+    <div class="tag"><span>Pro forehand<br>at contact<small>Reference player blurred on this page</small></span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap row flip">
+  <div class="phone"><img src="img/coach.jpg" alt="Ask your coach screen with suggested questions about a forehand" width="640" height="1323" loading="lazy"></div>
+  <div>
+    <p class="eyebrow">AI coach</p>
+    <h2 class="display">Ask about any shot.</h2>
+    <p class="lede">Tap the chat button on any swing and ask what you'd ask your coach. It looks at that exact shot and gives you a straight answer and one thing to work on.</p>
+    <div class="chat">
+      <div class="bubble me">What should I fix first on this one?</div>
+      <div class="bubble ai">Your contact is late. The ball is level with your hip, not out in front, so your arm is doing the work. <b>Try this:</b> meet it a racquet-length ahead of your front foot and let your shoulders turn through.</div>
+    </div>
+    <p class="note">Example answer. The coach only talks about what the camera can measure, your body and the strike. It won't guess at speed, spin or depth.</p>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <p class="eyebrow">Everything you get</p>
+  <h2 class="display">Built for players, not analysts.</h2>
+  <div class="grid">
+    <div class="tile"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3l12 9-12 9z"/></svg></div><h3>Every shot, found for you</h3><p>No scrubbing through an hour of footage. Shots are found from the sound of the strike and your movement.</p></div>
+    <div class="tile"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Slow motion, zoomed on you</h3><p>Each swing slowed down and framed on you, not on the far side of the court.</p></div>
+    <div class="tile"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h6"/></svg></div><h3>Labelled and scored</h3><p>Forehand, backhand or serve, each with a score. Wrong label? Fix it with one tap.</p></div>
+    <div class="tile"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="8" height="14" rx="2"/><rect x="13" y="5" width="8" height="14" rx="2"/></svg></div><h3>Compare with a pro</h3><p>Your stroke next to a reference player, synced at the same moment of the swing.</p></div>
+    <div class="tile"><div class="ico"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></div><h3>AI coach on every shot</h3><p>Ask what went right, what to fix first, or whether your contact point was right.</p></div>
+    <div class="tile"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 002 2h10a2 2 0 002-2v-5"/></svg></div><h3>Share your best</h3><p>Send your best rallies or one perfect forehand to the group chat, ready to post.</p></div>
+    <div class="tile"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></div><h3>Private by default</h3><p>Your recordings stay on your phone. Nothing leaves it unless you ask the coach.</p></div>
+    <div class="tile"><div class="ico"><svg viewBox="0 0 24 24"><path d="M7 4v16M17 4v16M7 12h10"/></svg></div><h3>Lefties welcome</h3><p>Works for left- and right-handed players, singles or hitting sessions.</p></div>
+    <div class="tile"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div><h3>Track your progress</h3><p>Every match kept: minutes of real tennis, shots played and your best of each stroke.</p></div>
+  </div>
+</div></section>
+
+<section class="story" style="padding-bottom:clamp(72px,10vw,128px)"><div class="wrap">
+  <div style="text-align:center;margin-bottom:44px">
+    <p class="eyebrow">Your matches, your shots</p>
+    <h2 class="display">18 minutes filmed. 4 minutes of tennis.</h2>
+    <p class="lede" style="margin:20px auto 0">Most of a match is walking about. FlowTennis keeps the part that matters and shows you how much you really played.</p>
+  </div>
+  <div class="duo">
+    <div class="phone"><img src="img/matches.jpg" alt="Matches screen: 4 min of tennis, 18 min filmed, 73 shots" width="640" height="1323" loading="lazy"></div>
+    <div class="phone"><img src="img/shots.jpg" alt="Shots screen with a session of 77 shots" width="640" height="1323" loading="lazy"></div>
+  </div>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2 class="display">Play the match.<br><em>Then watch it.</em></h2>
+  <p class="lede">Free on iPhone and Android. Film your next match and see what your coach never gets to see.</p>
+  <div class="ctas">
+    <a class="btn primary js-ios" href="https://testflight.apple.com/join/3Px7Wek4">Get it on iPhone</a>
+    <a class="btn ghost js-android" href="https://play.google.com/apps/testing/ai.flowsports.flowtennis">Get it on Android</a>
+  </div>
+  <p class="fine">iPhone opens in Apple's TestFlight. Android opens Google Play's test sign-up.</p>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 Ayva Labs · FlowTennis</span>
+  <span><a href="../privacy/">Privacy</a><a href="../support/">Support</a></span>
+</div></footer>
+
+<script>
+// Put the visitor's own phone first: the matching store button becomes the bright one.
+(function(){
+  var ua=navigator.userAgent||'';
+  var ios=/iPhone|iPad|iPod/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1);
+  var android=/Android/.test(ua);
+  if(!ios&&!android)return;
+  var mine=ios?'js-ios':'js-android', other=ios?'js-android':'js-ios';
+  document.querySelectorAll('.ctas').forEach(function(box){
+    var a=box.querySelector('.'+mine), b=box.querySelector('.'+other);
+    a.className='btn primary '+mine; b.className='btn ghost '+other; box.insertBefore(a,b);
+  });
+  var pill=document.querySelector('.js-primary');
+  pill.href=document.querySelector('.'+mine).href;
+})();
+</script>
 </body>
 </html>
