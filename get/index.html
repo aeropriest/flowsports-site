@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get FlowTennis</title>
+<meta name="description" content="Film your tennis. FlowTennis finds every shot and cuts the dead time out. Free on iPhone and Android.">
+<meta property="og:title" content="Get FlowTennis">
+<meta property="og:description" content="Film your tennis. Every shot, cut for you. Free on iPhone and Android.">
+<meta property="og:image" content="https://aeropriest.github.io/flowsports-site/assets/wordmark.png">
+<link rel="icon" href="../assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
+  // A phone goes straight to its store; anything else sees both buttons.
+  (function () {
+    var ua = navigator.userAgent || '';
+    var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    if (ios) location.replace('https://testflight.apple.com/join/3Px7Wek4');
+    else if (/Android/.test(ua)) location.replace('https://play.google.com/apps/testing/ai.flowsports.flowtennis');
+  })();
+</script>
+<style>
+:root { --optic:#D4FF3A; --ink:#F2F4EF; --bg:#0B0F14; --line:#2A3440; --muted:#9AA5B1; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.6 "DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
+main { max-width:520px; margin:0 auto; padding:56px 16px 72px; }
+img { width:min(260px,70vw); height:auto; display:block; }
+h1 { font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:800; line-height:.95; font-size:clamp(44px,10vw,64px); margin:28px 0 12px; }
+p { color:var(--muted); margin:0 0 28px; }
+a.btn { display:block; text-align:center; text-decoration:none; font-weight:700; padding:16px; border-radius:14px; margin:12px 0; }
+.ios { background:var(--optic); color:#0B0F14; }
+.android { border:1px solid var(--line); color:var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <img src="../assets/wordmark.png" alt="FlowTennis">
+  <h1>EVERY SWING.<br>YOUR HIGHLIGHT REEL.</h1>
+  <p>Prop your phone by the court and play. FlowTennis finds every shot and cuts out the walking about. Free.</p>
+  <a class="btn ios" href="https://testflight.apple.com/join/3Px7Wek4">Get it on iPhone</a>
+  <a class="btn android" href="https://play.google.com/apps/testing/ai.flowsports.flowtennis">Get it on Android</a>
+</main>
+</body>
+</html>
