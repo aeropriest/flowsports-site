@@ -37,6 +37,10 @@ nav img{height:26px;width:auto}
 .btn:hover{transform:translateY(-2px)}
 .btn svg{width:20px;height:20px;flex:none}
 .btn.primary{background:var(--optic);color:#0B0F14}
+.btn.badge{gap:12px;padding:11px 22px;text-align:left;line-height:1.1;font-size:20px;letter-spacing:-.01em}
+.btn.badge svg{width:28px;height:28px}
+.btn.badge span{display:flex;flex-direction:column}
+.btn.badge small{font-size:11px;font-weight:500;letter-spacing:.02em;opacity:.8;margin-bottom:2px}
 .btn.ghost{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.02)}
 .fine{font-size:14px;color:var(--muted)}
 .fine b{color:var(--ink);font-weight:500}
@@ -145,6 +149,26 @@ h2.display{font-size:clamp(44px,6vw,76px)}
 .bubble.ai b{color:var(--optic);font-weight:700}
 .note{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding-left:14px;margin:0}
 
+/* before / after */
+.ba{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;margin-top:44px}
+.ba .shot{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
+.ba video{width:100%;height:auto;display:block;aspect-ratio:3/2;background:#000}
+.lab.bef{left:14px;color:var(--clay)} .lab.aft{left:calc(50% + 14px);color:var(--optic)}
+.lab.tro{top:auto;bottom:14px;left:50%;transform:translateX(-50%);color:#0B0F14;background:var(--optic);opacity:0;transition:opacity .2s;white-space:nowrap}
+.lab.tro.on{opacity:1}
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline li{position:relative;padding:0 0 26px 30px}
+.timeline li::before{content:"";position:absolute;left:5px;top:8px;bottom:-6px;width:2px;background:var(--line)}
+.timeline li:last-child::before{display:none}
+.timeline li::after{content:"";position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
+.timeline li.ai::after{border-color:var(--optic);background:var(--optic)}
+.timeline li.win::after{border-color:var(--optic)}
+.timeline b{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.timeline li.ai b{color:var(--optic)}
+.timeline p{margin:0;color:#C9D1D8}
+.timeline .say{display:block;margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:16px 16px 16px 6px;padding:12px 15px;color:#D8DEE3;font-size:16px}
+@media (max-width:860px){.ba{grid-template-columns:1fr;gap:36px}}
+
 /* benefits */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
 .tile{padding:26px;border-radius:20px;background:var(--card);border:1px solid var(--line)}
@@ -195,8 +219,8 @@ footer a:hover{color:var(--ink)}
     <h1 class="display">See the tennis you <em>actually</em> play.</h1>
     <p class="lede">Prop your phone by the court and play your match. FlowTennis finds every shot, cuts out the walking about and slows each swing down, so you can finally see what happens when it counts.</p>
     <div class="ctas" id="get">
-      <a class="btn primary js-ios" href="https://testflight.apple.com/join/3Px7Wek4"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>Get it on iPhone</a>
-      <a class="btn ghost js-android" href="https://play.google.com/apps/testing/ai.flowsports.flowtennis"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.5l1.8-3.1c.1-.2 0-.4-.1-.5-.2-.1-.4 0-.5.1l-1.8 3.2c-1.5-.7-3.2-1-5-1s-3.5.3-5 1L5.2 6c-.1-.2-.3-.2-.5-.1-.2.1-.2.3-.1.5l1.8 3.1C3.3 11.2 1.3 14.3 1 18h22c-.3-3.7-2.3-6.8-5.4-8.5zM7 15.3c-.6 0-1-.5-1-1s.5-1 1-1 1 .5 1 1-.4 1-1 1zm10 0c-.6 0-1-.5-1-1s.5-1 1-1 1 .5 1 1-.4 1-1 1z"/></svg>Get it on Android</a>
+      <a class="btn badge primary js-ios" href="https://testflight.apple.com/join/3Px7Wek4"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg><span><small>Download for</small>iPhone</span></a>
+      <a class="btn badge ghost js-android" href="https://play.google.com/apps/testing/ai.flowsports.flowtennis"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00D7FE" d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2z"/><path fill="#FFCE00" d="M16.1 15.6l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1.1.6 1.1 1.6 0 2.2l-3.7 2.1z"/><path fill="#FF3A44" d="M16.2 15.5L13 12.4l-9.4 9.4c.4.4.9.4 1.6.1l11-6.4"/><path fill="#00F076" d="M16.2 9.2L5.2 2.8c-.7-.4-1.2-.3-1.6.1L13 12.4z"/></svg><span><small>Get it on</small>Google Play</span></a>
     </div>
     <p class="fine"><b>Free.</b> Your videos stay on your phone.</p>
   </div>
@@ -281,7 +305,24 @@ footer a:hover{color:var(--ink)}
   </div>
 </div></section>
 
-<section style="padding-top:0"><div class="wrap">
+<section class="story"><div class="wrap">
+  <p class="eyebrow">A real result</p>
+  <h2 class="display">One tip. One week. <span style="color:var(--optic)">A new serve.</span></h2>
+  <div class="ba">
+    <div class="shot" id="ba">
+      <video muted playsinline loop autoplay preload="metadata" poster="img/serve-before-after.jpg" src="img/serve-before-after.mp4" aria-label="The same player's serve on 4 November and 11 November, side by side and synced"></video>
+      <span class="lab bef">BEFORE · 4 NOV</span><span class="lab aft">AFTER · 11 NOV</span><span class="lab tro" id="tro">TROPHY POSITION</span>
+    </div>
+    <ol class="timeline">
+      <li><b>4 Nov · night session</b><p>Our founder films a hitting session. The serve feels fine: plenty of effort, not much on the ball.</p></li>
+      <li class="ai"><b>The AI coach</b><p>Looking at the serve frame by frame, it spots the problem.</p>
+        <span class="say">You're too open. Your chest faces the net before you swing, so it's all arm. Twist your shoulders further away from the net, then uncoil into the ball for more force and a better angle.</span></li>
+      <li class="win"><b>11 Nov · one week later</b><p>Shoulders turned, back to the net, then the uncoil. Watch both serves at the same moment: same player, a different serve.</p></li>
+    </ol>
+  </div>
+</div></section>
+
+<section><div class="wrap">
   <p class="eyebrow">Everything you get</p>
   <h2 class="display">Built for players, not analysts.</h2>
   <div class="grid">
@@ -313,8 +354,8 @@ footer a:hover{color:var(--ink)}
   <h2 class="display">Play the match.<br><em>Then watch it.</em></h2>
   <p class="lede">Free on iPhone and Android. Film your next match and see what your coach never gets to see.</p>
   <div class="ctas">
-    <a class="btn primary js-ios" href="https://testflight.apple.com/join/3Px7Wek4">Get it on iPhone</a>
-    <a class="btn ghost js-android" href="https://play.google.com/apps/testing/ai.flowsports.flowtennis">Get it on Android</a>
+    <a class="btn badge primary js-ios" href="https://testflight.apple.com/join/3Px7Wek4"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg><span><small>Download for</small>iPhone</span></a>
+    <a class="btn badge ghost js-android" href="https://play.google.com/apps/testing/ai.flowsports.flowtennis"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00D7FE" d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2z"/><path fill="#FFCE00" d="M16.1 15.6l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1.1.6 1.1 1.6 0 2.2l-3.7 2.1z"/><path fill="#FF3A44" d="M16.2 15.5L13 12.4l-9.4 9.4c.4.4.9.4 1.6.1l11-6.4"/><path fill="#00F076" d="M16.2 9.2L5.2 2.8c-.7-.4-1.2-.3-1.6.1L13 12.4z"/></svg><span><small>Get it on</small>Google Play</span></a>
   </div>
   <p class="fine">iPhone opens in Apple's TestFlight. Android opens Google Play's test sign-up.</p>
 </div></section>
@@ -334,7 +375,7 @@ footer a:hover{color:var(--ink)}
   var mine=ios?'js-ios':'js-android', other=ios?'js-android':'js-ios';
   document.querySelectorAll('.ctas').forEach(function(box){
     var a=box.querySelector('.'+mine), b=box.querySelector('.'+other);
-    a.className='btn primary '+mine; b.className='btn ghost '+other; box.insertBefore(a,b);
+    a.className='btn badge primary '+mine; b.className='btn badge ghost '+other; box.insertBefore(a,b);
   });
   var pill=document.querySelector('.js-primary');
   pill.href=document.querySelector('.'+mine).href;
@@ -357,6 +398,12 @@ footer a:hover{color:var(--ink)}
   var box=document.getElementById('cmp'); if(!box)return;
   var v=box.querySelector('video'), at=document.getElementById('atContact');
   v.addEventListener('timeupdate',function(){at.classList.toggle('on',v.currentTime>2.0&&v.currentTime<2.9)});
+})();
+// Before/after: flag the trophy position.
+(function(){
+  var box=document.getElementById('ba'); if(!box)return;
+  var v=box.querySelector('video'), t=document.getElementById('tro');
+  v.addEventListener('timeupdate',function(){t.classList.toggle('on',v.currentTime>1.6&&v.currentTime<2.8)});
 })();
 // Coach: tap a question, watch the answer come in, repeat.
 (function(){
