@@ -7,7 +7,7 @@
 <meta name="description" content="You play well with your coach, then lose it in the match. Film your real tennis: FlowTennis finds every shot, slows it down, puts it next to a pro and lets you ask an AI coach. Free on iPhone and Android.">
 <meta property="og:title" content="FlowTennis: see the tennis you actually play">
 <meta property="og:description" content="Film your match. Every shot found, slowed down, compared with a pro. Free on iPhone and Android.">
-<meta property="og:image" content="https://aeropriest.github.io/flowsports-site/get/img/compare.jpg">
+<meta property="og:image" content="https://aeropriest.github.io/flowsports-site/get/img/compare-poster.jpg">
 <meta name="theme-color" content="#0B0F14">
 <link rel="icon" href="../assets/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +50,7 @@ nav img{height:26px;width:auto}
 .hero .lede{margin:24px 0 0}
 .phone{border-radius:38px;padding:9px;background:#05080B;border:1px solid #2B3642;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.03) inset;max-width:320px;margin:0 auto}
 .phone img{border-radius:30px;width:100%}
-.hero .phone{transform:rotate(3deg);max-width:290px}
+.hero .phone{transform:rotate(2deg);max-width:300px}
 
 /* story */
 .story{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -94,13 +94,50 @@ h2.display{font-size:clamp(44px,6vw,76px)}
 /* compare */
 .compare{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .compare .shot{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);margin-top:44px;box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
-.compare .shot .tag{position:absolute;right:0;top:0;bottom:0;width:50%;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
-.compare .shot .tag span{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:800;font-size:clamp(20px,3vw,34px);text-transform:uppercase;line-height:1.05;color:var(--ink);text-shadow:0 2px 20px rgba(0,0,0,.6)}
-.compare .shot .tag small{display:block;font-family:"DM Sans",sans-serif;font-weight:500;font-size:13px;text-transform:none;color:var(--muted);margin-top:8px;letter-spacing:0}
+.compare .shot{max-width:640px;margin-left:auto;margin-right:auto}
+.compare .shot video{width:100%;height:auto;display:block;aspect-ratio:808/720;background:#000}
+.lab{position:absolute;top:14px;font-size:12px;font-weight:700;letter-spacing:.14em;padding:6px 12px;border-radius:999px;background:rgba(11,15,20,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.lab.you{left:14px;color:var(--optic)} .lab.pro{left:calc(50% + 14px);color:var(--ink)}
+.lab.at{top:auto;bottom:14px;left:50%;transform:translateX(-50%);color:#0B0F14;background:var(--optic);opacity:0;transition:opacity .2s}
+.lab.at.on{opacity:1}
+.compare .caption{text-align:center;color:var(--muted);font-size:15px;margin:16px 0 0}
 .compare .cols{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end}
 .compare .cols .lede{margin:0}
 
+/* hero reel */
+.reel{position:relative}
+.reel video{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border-radius:30px;display:block;background:#000}
+.reel .cap{position:absolute;left:24px;right:24px;bottom:26px;pointer-events:none}
+.reel .cap b{display:block;font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;font-size:40px;line-height:1;text-transform:uppercase;text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.reel .cap small{display:block;margin-top:6px;font-size:13px;font-weight:500;color:rgba(255,255,255,.82);text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.reel .cap::before{content:"";position:absolute;inset:-60px -24px -26px;background:linear-gradient(transparent,rgba(0,0,0,.55));border-radius:0 0 30px 30px;z-index:-1}
+.reel .dots{position:absolute;top:22px;right:22px;display:flex;gap:6px}
+.reel .dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);transition:all .3s}
+.reel .dots i.on{background:var(--optic);width:20px;border-radius:4px}
+
 /* coach */
+.row .phone{width:100%}
+.live{position:relative;width:100%;aspect-ratio:9/19.5;border-radius:30px;overflow:hidden;background:#000 url(img/hero-2.jpg) center 30%/cover}
+.live::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(5,8,11,.35),rgba(5,8,11,.55) 40%,rgba(5,8,11,.92))}
+.live .scr{position:absolute;inset:0;display:flex;flex-direction:column;padding:22px 16px 18px}
+.live .hd{display:flex;align-items:center;gap:10px}
+.live .x{width:34px;height:34px;border-radius:50%;background:rgba(11,15,20,.7);display:grid;place-items:center;font-size:16px;color:#fff}
+.live .hd small{display:block;font-size:10px;letter-spacing:.16em;color:rgba(255,255,255,.75);font-weight:700}
+.live .hd b{font-size:19px;font-weight:700}
+.live .hd b em{font-style:normal;font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;color:var(--optic);font-size:22px;margin-left:6px}
+.live .flow{margin-top:auto;display:flex;flex-direction:column;gap:8px}
+.live .chip{background:rgba(11,15,20,.78);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 12px;font-size:13.5px;font-weight:500;transition:all .25s}
+.live .chip.pick{background:var(--optic);color:#0B0F14;transform:scale(.98)}
+.live .bubble{font-size:13.5px;padding:10px 13px;max-width:92%}
+.live .typing{display:inline-flex;gap:4px;padding:14px 16px}
+.live .typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}
+.live .typing i:nth-child(2){animation-delay:.15s}.live .typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.live .input{margin-top:10px;display:flex;gap:8px;align-items:center}
+.live .input span{flex:1;border:1px solid rgba(255,255,255,.12);background:rgba(11,15,20,.8);border-radius:12px;padding:10px 12px;font-size:13px;color:rgba(255,255,255,.4)}
+.live .input i{width:36px;height:36px;border-radius:50%;background:var(--optic);opacity:.5}
+.fade-in{animation:fin .35s ease both}@keyframes fin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
 .chat{display:flex;flex-direction:column;gap:10px;margin:0 0 22px}
 .bubble{max-width:88%;padding:13px 17px;border-radius:18px;font-size:16px;line-height:1.5}
 .bubble.me{align-self:flex-end;background:var(--optic);color:#0B0F14;font-weight:500;border-bottom-right-radius:6px}
@@ -163,7 +200,11 @@ footer a:hover{color:var(--ink)}
     </div>
     <p class="fine"><b>Free.</b> Your videos stay on your phone.</p>
   </div>
-  <div class="phone"><img src="img/home.jpg" alt="FlowTennis home screen showing a forehand scored 70" width="640" height="1323"></div>
+  <div class="phone reel">
+    <video id="reel" muted playsinline autoplay preload="auto" poster="img/hero-serve.jpg" src="img/hero-serve.mp4" aria-label="Slow-motion clips of a serve and forehands, cut by FlowTennis"></video>
+    <div class="dots"><i class="on"></i><i></i><i></i></div>
+    <div class="cap"><b id="capT">Serve</b><small id="capS">4× slow motion · filmed 11 Nov</small></div>
+  </div>
 </div></header>
 
 <section class="story"><div class="wrap">
@@ -217,22 +258,26 @@ footer a:hover{color:var(--ink)}
     </div>
     <p class="lede">Pick any of your shots and play it next to a pro's, lined up at the same moment. Drag through preparation, contact and follow-through and the difference shows itself. Is your contact in front? Did your shoulders turn? Now you can see it.</p>
   </div>
-  <div class="shot">
-    <img src="img/compare.jpg" alt="Your forehand on the left, a pro's forehand on the right, both at contact" width="1200" height="552" loading="lazy">
+  <div class="shot" id="cmp">
+    <video muted playsinline loop autoplay preload="metadata" poster="img/compare-poster.jpg" src="img/compare.mp4" aria-label="A real forehand side by side with a pro reference, lined up at contact, in slow motion"></video>
+    <span class="lab you">YOU</span><span class="lab pro">PRO</span><span class="lab at" id="atContact">CONTACT</span>
   </div>
+  <p class="caption">A real forehand filmed with FlowTennis next to the pro reference, lined up at contact and slowed down.</p>
 </div></section>
 
 <section><div class="wrap row flip">
-  <div class="phone"><img src="img/coach.jpg" alt="Ask your coach screen with suggested questions about a forehand" width="640" height="1323" loading="lazy"></div>
+  <div class="phone"><div class="live" id="live" aria-label="Animation: asking the FlowTennis AI coach about a forehand">
+    <div class="scr">
+      <div class="hd"><span class="x">✕</span><div><small>ASK YOUR COACH</small><b>Forehand<em>76</em></b></div></div>
+      <div class="flow" id="flow"></div>
+      <div class="input"><span>Ask about this shot</span><i></i></div>
+    </div>
+  </div></div>
   <div>
     <p class="eyebrow">AI coach</p>
     <h2 class="display">Ask about any shot.</h2>
     <p class="lede">Tap the chat button on any swing and ask what you'd ask your coach. It looks at that exact shot and gives you a straight answer and one thing to work on.</p>
-    <div class="chat">
-      <div class="bubble me">What should I fix first on this one?</div>
-      <div class="bubble ai">Your contact is late. The ball is level with your hip, not out in front, so your arm is doing the work. <b>Try this:</b> meet it a racquet-length ahead of your front foot and let your shoulders turn through.</div>
-    </div>
-    <p class="note">Example answer. The coach only talks about what the camera can measure, your body and the strike. It won't guess at speed, spin or depth.</p>
+    <p class="note">Example conversation. The coach only talks about what the camera can measure, your body and the strike. It won't guess at speed, spin or depth.</p>
   </div>
 </div></section>
 
@@ -293,6 +338,42 @@ footer a:hover{color:var(--ink)}
   });
   var pill=document.querySelector('.js-primary');
   pill.href=document.querySelector('.'+mine).href;
+})();
+
+// Hero: play the clips one after another, forever.
+(function(){
+  var v=document.getElementById('reel'); if(!v)return;
+  var clips=[{s:'img/hero-serve.mp4',p:'img/hero-serve.jpg',t:'Serve',c:'4× slow motion · filmed 11 Nov'},
+             {s:'img/hero-1.mp4',p:'img/hero-1.jpg',t:'Forehand',c:'Slow motion · shot 41 of 73'},
+             {s:'img/hero-2.mp4',p:'img/hero-2.jpg',t:'Forehand',c:'Slow motion · scored 76'}];
+  var i=0, dots=document.querySelectorAll('.reel .dots i');
+  function show(n){i=n;var c=clips[i];v.poster=c.p;v.src=c.s;
+    document.getElementById('capT').textContent=c.t;document.getElementById('capS').textContent=c.c;
+    dots.forEach(function(d,k){d.className=k===i?'on':''});var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});}
+  v.addEventListener('ended',function(){show((i+1)%clips.length)});
+})();
+// Compare: flag the moment of contact (2.25 s into the clip).
+(function(){
+  var box=document.getElementById('cmp'); if(!box)return;
+  var v=box.querySelector('video'), at=document.getElementById('atContact');
+  v.addEventListener('timeupdate',function(){at.classList.toggle('on',v.currentTime>2.0&&v.currentTime<2.9)});
+})();
+// Coach: tap a question, watch the answer come in, repeat.
+(function(){
+  var flow=document.getElementById('flow'); if(!flow)return;
+  var qs=['What did I do well on this one?','What should I fix first on this one?','Was my contact point right?'];
+  var answer='Your contact is a touch late: the ball is level with your hip, not out in front, so your arm does the work. Try this: meet it a racquet-length ahead of your front foot and let your shoulders turn through.';
+  var timers=[];function later(f,ms){timers.push(setTimeout(f,ms))}
+  function el(cls,txt){var d=document.createElement('div');d.className=cls+' fade-in';if(txt)d.textContent=txt;flow.appendChild(d);return d}
+  function run(){
+    flow.innerHTML='';var chips=qs.map(function(q){return el('chip',q)});
+    later(function(){chips[1].classList.add('pick')},1600);
+    later(function(){flow.innerHTML='';el('bubble me',qs[1])},2300);
+    var dots;later(function(){dots=el('bubble ai typing');dots.innerHTML='<i></i><i></i><i></i>'},2900);
+    later(function(){dots.remove();var b=el('bubble ai','');var n=0;
+      (function type(){n+=2;b.textContent=answer.slice(0,n);if(n<answer.length)later(type,28);else later(run,5200)})();},4300);
+  }
+  if('IntersectionObserver' in window){var started=false;new IntersectionObserver(function(e){if(e[0].isIntersecting&&!started){started=true;run()}},{threshold:.3}).observe(flow)}else run();
 })();
 </script>
 </body>
